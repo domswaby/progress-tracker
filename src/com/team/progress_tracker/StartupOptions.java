@@ -22,6 +22,9 @@ public class StartupOptions {
 		username = Reader.read();
 		
 		//search database for username and if it already exists reprompt for username
+		//while(userDaoClass.search(username) != null) {
+		//	   System.out.println("This username is taken. Please select a new username.");
+		// }
 		System.out.println("Please select a password: ");
 		password = Reader.read();
 		
