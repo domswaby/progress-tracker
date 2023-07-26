@@ -26,7 +26,7 @@ public class Menu {
 				} 
 				
 				if(result < 1 || result > 3) {
-					System.out.println("Please enter one of the provided number options!");
+					System.out.println("Please enter one of the provided number options.");
 					valid = false;
 				}
 				
@@ -41,10 +41,10 @@ public class Menu {
 		switch (choice) {
 		
 		case 1:
-			//redirect to sign up screen
+			username = StartupOptions.handleSignup();
 			break;
 		case 2:
-			//redirect to log in screen
+			username = StartupOptions.handleLogin();
 			break;
 		default:
 			System.out.println("Have a great day!");
@@ -52,6 +52,7 @@ public class Menu {
 			System.exit(0);
 		}
 		
+		System.out.println("Welcome, " + username + "!");
 		return username;
 		
 	}
@@ -59,13 +60,11 @@ public class Menu {
 	public static int userMenu(String username) {
 		int result = -1;
 		boolean valid;
-		System.out.println("Welcome, " + username + "!");
 		System.out.println("What would you like to do today? You must use one of the provided number options to indicate your choice.");
-		System.out.println("1. View status");
-		System.out.println("2. View global status by book");
-		System.out.println("3. Search book database");
-		System.out.println("4. View global book rating");
-		System.out.println("5: Log out");
+		System.out.println("1. View your status");
+		System.out.println("2. Edit book status");
+		//System.out.println("3. Search book database"); not required for MVP
+		System.out.println("3: Log out"); //edit to 4 when we add more
 		
 		do {
 			valid = true;
@@ -75,7 +74,7 @@ public class Menu {
 				valid = false;
 			} 
 			
-			if(result < 1 || result > 5) {
+			if(result < 1 || result > 3) { //edit to 4 when we add more
 				System.out.println("Please enter one of the provided number options!");
 				valid = false;
 			}
@@ -86,26 +85,22 @@ public class Menu {
 		
 	public static void userMenuResult(int choice) {
 			
-			//System.out.print("You have selected ");
 			switch (choice) {
 			
 			case 1:
 				//redirect to user book list screen
 				break;
 			case 2:
-				//redirect to book status screen
+				//redirect to status edit screen
 				break;
-			case 3:
+			/*case 3:
 				//redirect to book search screen
-				break;
-			case 4:
-				//redirect to rating screen
-				break;
+				break;*/
 			default:
-				System.out.println("5: Log out!");
-				System.out.println("Have a great day!\n");
+				System.out.println("3: Log out");
+				System.out.println("Please come again!\n");
 				try {
-					Thread.sleep(500);
+					Thread.sleep(500); //wait a little
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
