@@ -5,3 +5,8 @@
 /Reader.class
 /SignUp.class
 /StartupOptions.class
+/target/
+/.classpath
+/*.project
+/.settings
+/*.springBeans
