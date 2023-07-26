@@ -1,8 +1,10 @@
 package com.team.progress_tracker;
 
+import com.team.progress_tracker.user.User;
+
 public class StartupOptions {
 	
-	//User currentUser = null;
+	public static User currentUser = null;
 	
 	public static String handleSignup() {
 		
@@ -10,6 +12,7 @@ public class StartupOptions {
 		String lastName = "";
 		String username = "";
 		String password = "";
+		int id = -1;
 		
 		System.out.println("\nPlease enter your first name: ");
 		firstName = Reader.read();
@@ -17,10 +20,15 @@ public class StartupOptions {
 		lastName = Reader.read();
 		System.out.println("Please select a username: ");
 		username = Reader.read();
+		
+		//search database for username and if it already exists reprompt for username
 		System.out.println("Please select a password: ");
 		password = Reader.read();
 		
 		//logic for creating a user with the fields, then sets the user
+		currentUser = new User(id, firstName, lastName, username, password, false);
+		//logic for adding the new to the database
+		
 		return username;
 		
 	}
@@ -31,9 +39,14 @@ public class StartupOptions {
 		String givenPassword = "";
 		String actualPassword = "1";
 		boolean success = false;
+		User user;
 		
 		System.out.print("Username: ");
 		username = Reader.read();
+		
+		//search database based on username and password
+		//user = userDAO.getUser(username);
+		//actualPassword = user.getPassword();
 		
 		do {
 			System.out.print("\nPassword: ");
@@ -47,8 +60,7 @@ public class StartupOptions {
 		} while (!success);
 		
 		//set the user to the current user
-		//search database based on username and password		
-		
+		//currentUser = user;
 		return username;
 	}
 }
