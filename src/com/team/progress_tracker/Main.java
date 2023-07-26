@@ -7,11 +7,6 @@ public class Main {
 
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-		System.out.println("Hello World");
-	}
-=======
 
 		int result = -1;
 		String username = "";
@@ -37,6 +32,5 @@ public class Main {
 	
 	
   
->>>>>>> 051e5337d65e7eca169bf90d37f1ff1c72c71098
 
 }
