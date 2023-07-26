@@ -10,7 +10,8 @@ public class User {
 	private String password;
 	private boolean is_admin;
 	
-	public User(int user_ID, String first_name, String last_name, String username, String password, boolean is_admin) {
+
+	public User(int user_ID,String first_name, String last_name, String username, String password, boolean is_admin) {
 		this.user_ID = user_ID;
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -30,6 +31,7 @@ public class User {
 	public void setUser_ID(int user_ID) {
 		this.user_ID = user_ID;
 	}
+
 	public String getFirst_name() {
 		return first_name;
 	}
