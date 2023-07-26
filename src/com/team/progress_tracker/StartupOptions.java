@@ -56,7 +56,7 @@ public class StartupOptions {
 		
 		String username = "";
 		String givenPassword = "";
-		String actualPassword = "1";
+		String actualPassword = "";
 		boolean success = false;
 		Optional<User> user = null;
 	
