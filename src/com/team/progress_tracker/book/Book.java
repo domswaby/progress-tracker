@@ -1,6 +1,6 @@
 package com.team.progress_tracker.book;
 
-public class BookClass {
+public class Book {
 	
 	private int book_ID;
 	private String title;
