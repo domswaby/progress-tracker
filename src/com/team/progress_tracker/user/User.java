@@ -3,15 +3,13 @@ package com.team.progress_tracker.user;
 
 public class User {
 
-	private int user_ID;
 	private String first_name;
 	private String last_name;
 	private String username;
 	private String password;
 	private boolean is_admin;
 	
-	public User(int user_ID, String first_name, String last_name, String username, String password, boolean is_admin) {
-		this.user_ID = user_ID;
+	public User(String first_name, String last_name, String username, String password, boolean is_admin) {
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.username = username;
@@ -20,16 +18,10 @@ public class User {
 	}
 	
 	public String toString() {
-		return "User [UserID=" + user_ID + ", name =" + first_name + last_name + ", username =" + username + ", password =" + password
+		return "Name =" + first_name + last_name + ", username =" + username + ", password =" + password
 				+ ", Is Admin =" + is_admin + "]";
 	}
 	
-	public int getUser_ID() {
-		return user_ID;
-	}
-	public void setUser_ID(int user_ID) {
-		this.user_ID = user_ID;
-	}
 	public String getFirst_name() {
 		return first_name;
 	}
