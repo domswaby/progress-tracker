@@ -13,11 +13,11 @@ public interface UserDaoInterface {
 		
 		// Find a user by their id and returns an Optional of user (check notes/code from Java Streams to review
 		// Optional and how to use them)
-		public Optional<User> login(int userID) throws ClassNotFoundException, SQLException;
+		public Optional<User> login(String username) throws ClassNotFoundException, SQLException;
 		
 		// Create a new user in the table. Remember, there will be auto increment on the table, so no need
 		// to give an id
-		public User signup(User user) throws ClassNotFoundException, SQLException;
+		public User signup(User username, User first_name, User last_name, User password) throws ClassNotFoundException, SQLException;
 
 		// Return a list of user who all work in the same restaurant, if no chefs are in the restaurant given
 		// it is okay to return an empty list
