@@ -6,6 +6,10 @@ public class Book {
 	private String title;
 	private String author;
 	
+	/*
+	 * A simple book object.
+	 */
+	
 	public Book(String title, String author) {
 		this.title = title;
 		this.author = author;

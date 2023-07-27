@@ -2,12 +2,17 @@ package com.team.progress_tracker;
 
 import java.util.Scanner;
 
-import com.team.progress_tracker.book.BookDaoImp;
-
 public class Menu {
 	
 	public static Scanner reader;
 	
+	/*
+	 * Handles the display of both signed in and not signed in menus, as well as their top level logic.
+	 */
+	
+	/*
+	 * Accepts user input and checks for invalid inputs. Signing up was not part of MVP, but included anyway.
+	 */
 	public static int startupMenu(Scanner reader) {
 			
 			int result = -1;
@@ -36,6 +41,9 @@ public class Menu {
 			return result;
 					
 	}
+	/*
+	 * Handles top level logic of signing up, logging in, or shutting down.
+	 */
 	
 	public static String startupResult(int choice) {
 		String username = "";
@@ -59,15 +67,18 @@ public class Menu {
 		
 	}
 	
+	/*
+	 * handles logic of a user once logged in, checks for invalid inputs.
+	 */
+	
 	public static int userMenu(String username) {
 		int result = -1;
 		boolean valid;
-		BookDaoImp bd = new BookDaoImp();
 		System.out.println("What would you like to do today? You must use one of the provided number options to indicate your choice.");
 		System.out.println("1. View your status");
 		System.out.println("2. Edit book status");
-		//System.out.println("3. Search book database"); not required for MVP
-		System.out.println("3: Log out"); //edit to 4 when we add more
+		System.out.println("3. Add new book tracker");
+		System.out.println("4: Log out"); //edit to 5 when we add more
 		
 		do {
 			valid = true;
@@ -77,7 +88,7 @@ public class Menu {
 				valid = false;
 			} 
 			
-			if(result < 1 || result > 3) { //edit to 4 when we add more
+			if(result < 1 || result > 4) { //edit to 5 when we add more
 				System.out.println("Please enter one of the provided number options!");
 				valid = false;
 			}
@@ -85,22 +96,27 @@ public class Menu {
 		} while (!valid);
 		return result;
 	}	
+	
+	/*
+	 * handles top level logic of user choices.
+	 */
 		
 	public static void userMenuResult(int choice) {
 			
 			switch (choice) {
 			
 			case 1:
-				//redirect to user book list screen
+				LibraryOptions.userList();
+				System.out.println("\n");
 				break;
 			case 2:
-				//redirect to status edit screen
+				LibraryOptions.editTracker();
 				break;
-			/*case 3:
-				//redirect to book search screen
-				break;*/
+			case 3:
+				LibraryOptions.addTracker();
+				break;
 			default:
-				System.out.println("3: Log out");
+				System.out.println("4: Log out");
 				System.out.println("Please come again!\n");
 				try {
 					Thread.sleep(500); //wait a little

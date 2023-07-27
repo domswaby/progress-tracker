@@ -16,7 +16,7 @@ public class Main {
 		username = Menu.startupResult(result); // handles the creation of a new account or the login of an old one
 		
 		while (true) {
-			if (result != 3) { //if the user doesn't want to log out; edit to 4 when we add more
+			if (result != 4) { //if the user doesn't want to log out, and continues the session; edit to 5 when we add more
 				result = Menu.userMenu(username);
 				Menu.userMenuResult(result);
 			} else {

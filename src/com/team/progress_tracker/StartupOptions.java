@@ -11,6 +11,11 @@ public class StartupOptions {
 	public static User currentUser = null;
 	public static UserDaoImp handler = new UserDaoImp();
 	
+	/*
+	 * Handles user choices of signing up and logging in, as well as the top level logic for both.
+	 */
+	
+	//signing up adds a new user to the user database. No new user can be an admin.
 	public static String handleSignup() {
 		
 		String firstName = "";
@@ -53,6 +58,9 @@ public class StartupOptions {
 		
 	}
 	
+	/*
+	 * searches the user database for the username and password, denies entry if password is incorrect. Only works on pre-existing users.
+	 */
 	public static String handleLogin() {
 		
 		String username = "";
@@ -95,5 +103,13 @@ public class StartupOptions {
 		//set the user to the current user
 		currentUser = user.get();
 		return username;
+	}
+	
+	/*
+	 * gets the user that's currently logged in.
+	 */
+	public static User getCurrentUser() {
+		
+		return StartupOptions.currentUser;
 	}
 }
