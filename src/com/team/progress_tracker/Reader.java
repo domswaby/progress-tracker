@@ -7,7 +7,7 @@ import java.util.Scanner;
 		
 		public static String read() {
 			String input;
-			input = reader.next();
+			input = reader.nextLine();
 			return input;
 		}
 		

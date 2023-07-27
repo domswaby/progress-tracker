@@ -10,6 +10,10 @@ import com.team.progress_tracker.ConnectionManager;
 
 public class UserDaoImp implements UserDaoInterface {
 	
+	/*
+	 * The DAO for a User object.
+	 */
+	
 	private static Connection connection = null;
 
 	@Override
@@ -27,12 +31,18 @@ public class UserDaoImp implements UserDaoInterface {
 
 	}
 
+	/*
+	 * makes sure the user exists in order to ensure a successful login.
+	 */
 	@Override
 	public Optional<User> login(String username) throws ClassNotFoundException, SQLException {	
 		this.establishConnection();
 		return search(username);
 	}
 
+	/*
+	 * adds a new user to the database
+	 */
 	@Override
 	public int signup(User user) throws ClassNotFoundException, SQLException {
 		Statement s;
@@ -50,7 +60,9 @@ public class UserDaoImp implements UserDaoInterface {
 		
 		return this.search(user.getUsername()).get().getUser_ID();
 	}
-	
+	/*
+	 * finds a pre-existing user in the database, or returns empty if the user does not exist
+	 */
 	@Override
 	public Optional<User> search(String username) {
 		Statement s = null;

@@ -1,7 +1,6 @@
 package com.team.progress_tracker.book;
 
 import java.sql.SQLException;
-import java.util.List;
 
 public interface BookDaoInterface {
 	// needed for later so we make sure that the connection manager gets called
@@ -20,6 +19,6 @@ public interface BookDaoInterface {
 		public void add(Book book, double rating, String status) throws ClassNotFoundException, SQLException;
 		
 		// Return all books in the table
-		public List<Book> getAll() throws SQLException, ClassNotFoundException;
+		public void getAll() throws SQLException, ClassNotFoundException;
 
 }

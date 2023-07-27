@@ -2,6 +2,10 @@ package com.team.progress_tracker.user;
 
 
 public class User {
+	
+	/*
+	 * A simple user object.
+	 */
 
 	private int user_ID;
 	private String first_name;
