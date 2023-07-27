@@ -2,6 +2,8 @@ package com.team.progress_tracker;
 
 import java.util.Scanner;
 
+import com.team.progress_tracker.book.BookDaoImp;
+
 public class Menu {
 	
 	public static Scanner reader;
@@ -60,6 +62,7 @@ public class Menu {
 	public static int userMenu(String username) {
 		int result = -1;
 		boolean valid;
+		BookDaoImp bd = new BookDaoImp();
 		System.out.println("What would you like to do today? You must use one of the provided number options to indicate your choice.");
 		System.out.println("1. View your status");
 		System.out.println("2. Edit book status");

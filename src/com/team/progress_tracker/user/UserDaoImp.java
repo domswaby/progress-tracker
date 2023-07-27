@@ -29,7 +29,7 @@ public class UserDaoImp implements UserDaoInterface {
 
 	@Override
 	public Optional<User> login(String username) throws ClassNotFoundException, SQLException {	
-		
+		this.establishConnection();
 		return search(username);
 	}
 
@@ -37,6 +37,7 @@ public class UserDaoImp implements UserDaoInterface {
 	public int signup(User user) throws ClassNotFoundException, SQLException {
 		Statement s;
 		try {
+			this.establishConnection();
 			s = connection.createStatement();
 			String command = "INSERT INTO user (first_name, last_name, username, pass, is_admin) values('" +
 			user.getFirst_name() + "', '" + user.getLast_name() + "', '" 
@@ -56,9 +57,10 @@ public class UserDaoImp implements UserDaoInterface {
 		Optional<User> result = Optional.empty();
 		
 		try {
+			this.establishConnection();
 			s = connection.createStatement();			
 			
-			String query = "select * from user where username = " + username + ";";
+			String query = "select * from user where username = '" + username + "';";
 			
 			ResultSet rs = s.executeQuery(query);
 			
@@ -72,7 +74,7 @@ public class UserDaoImp implements UserDaoInterface {
 				result = Optional.of(new User(id, firstName, lastName,username, password, isAdmin));
 			}
 	
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 

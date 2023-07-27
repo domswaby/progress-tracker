@@ -9,7 +9,7 @@ import com.team.progress_tracker.user.UserDaoImp;
 public class StartupOptions {
 	
 	public static User currentUser = null;
-	public static UserDaoImp handler;
+	public static UserDaoImp handler = new UserDaoImp();
 	
 	public static String handleSignup() {
 		
@@ -25,6 +25,7 @@ public class StartupOptions {
 		lastName = Reader.read();
 		System.out.println("Please select a username: ");
 		username = Reader.read();
+		
 		
 		//search database for username and if it already exists reprompt for username
 		while(!handler.search(username).isEmpty()) {
@@ -87,7 +88,7 @@ public class StartupOptions {
 			
 			if(!givenPassword.equals(actualPassword)) {
 				success = false;
-				System.out.println("Password was incorrect. Access denied.");
+				System.out.println("Password was incorrect. Please enter the correct password.");
 			}
 		} while (!success);
 		
